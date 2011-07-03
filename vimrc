@@ -44,7 +44,12 @@ nmap <D-0> g^
 set linespace=4
 
 "disable visual bell
-set visualbell t_vb=
+"set visualbell t_vb=
+"set vb t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 "try to make possible to navigate within lines of wrapped lines
 nmap <Down> gj
@@ -187,7 +192,7 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-set wildmode=list:longest   "make cmdline tab completion similar to bash
+set wildmode=longest:full,full   "make cmdline tab completion similar to zsh
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
@@ -270,18 +275,19 @@ endif
 " else in your ~/.vimrc file, such as:
 " nmap <silent> <Leader>q <Plug>PeepOpen
 
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+silent! nmap <silent> <F3> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+"silent! nmap <silent> <F3> :exec "e ". fnamemodify('.', ':p:p')<CR> :NERDTreeMirror<CR>
+nnoremap <silent> <A-F3> :call FindInNERDTree()<CR>
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
-nnoremap <leader>b :BufExplorer<cr>
+nnoremap <F2> :BufExplorer<cr>
 
 "map to CommandT TextMate style finder
-nnoremap <leader>t :CommandT<CR>
+nnoremap <F5> :CommandT<CR>
 
 "map Q to something useful
 noremap Q gq
@@ -424,3 +430,18 @@ let g:user_zen_settings = {
   \  },
  \}
 
+"disable the toolbar
+set guioptions-=T
+
+"moving between tabs
+nnoremap <silent> <left> :tabprevious<CR>
+imap <silent> <left> <esc>:tabprevious<CR>
+imap 'silent' <right> <esc>:tabnext<CR>
+nnoremap <silent> <right> :tabnext<CR>
+
+"NERDTree
+let NERDTreeMouseMode = 3
+let NERDTreeQuitOnOpen = 1
+
+"disable backups
+set nobackup

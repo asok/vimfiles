@@ -445,3 +445,5 @@ let NERDTreeQuitOnOpen = 1
 
 "disable backups
 set nobackup
+
+let mapleader = ","

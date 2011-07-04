@@ -450,6 +450,6 @@ set noswapfile
 
 let mapleader = ","
 
-silent! nmap <F6> :Rmodel
-silent! nmap <F7> :Rview
-silent! nmap <F8> :Rcontroller
+silent! nmap <F6> :Rmodel 
+silent! nmap <F7> :Rview 
+silent! nmap <F8> :Rcontroller 

@@ -143,3 +143,6 @@
 [submodule "plugin/gist-vim"]
 	path = plugin/gist-vim
 	url = https://github.com/mattn/gist-vim.git
+[submodule "bundle/yank-ring"]
+	path = bundle/yank-ring
+	url = https://github.com/chrismetcalf/vim-yankring.git

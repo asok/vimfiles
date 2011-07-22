@@ -1,5 +1,7 @@
 "avoiding annoying CSApprox warning message
 let g:CSApprox_verbose_level = 0
+"disable endwise
+let g:loaded_endwise = 1
 
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype off

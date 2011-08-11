@@ -238,7 +238,7 @@ if has("gui_running")
     set columns=115
 
     if has("gui_gnome")
-        set term=gnome-256color
+        set term=ansi
         colorscheme railscasts
         set guifont=Monospace\ 10
     endif

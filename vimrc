@@ -251,6 +251,14 @@ if has("gui_running")
         "macmenu &File.New\ Tab key=<nop>
         "map <D-t> :CommandT<CR>
         " make Mac's Option key behave as the Meta key
+        "key mapping for window navigation
+        nmap <D-h> <C-w>h
+        nmap <D-j> <C-w>j
+        nmap <D-k> <C-w>k
+        nmap <D-l> <C-w>l
+        nmap <D-b> :ConqueTerm bash<CR>
+
+        let Grep_Find_Use_Xargs = 0
     endif
 
     if has("gui_win32") || has("gui_win32s")
@@ -449,6 +457,13 @@ set noswapfile
 
 let mapleader = ","
 
-silent! nmap <F6> :Rmodel 
-silent! nmap <F7> :Rview 
-silent! nmap <F8> :Rcontroller 
+silent! nmap <F6> :Rmodel
+silent! nmap <F7> :Rview
+silent! nmap <F8> :Rcontroller
+
+"toggle autoclose when switching in and out of ConqueTerm
+function ToggleAutoClose(term)
+  AutoCloseToggle
+endfunction
+call conque_term#register_function('buffer_enter', 'ToggleAutoClose')
+call conque_term#register_function('buffer_leave', 'ToggleAutoClose')

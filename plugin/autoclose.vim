@@ -237,5 +237,7 @@ if g:autoclose_on
     let g:autoclose_on = 0
     silent call <SID>ToggleAutoCloseMappings()
 endif
+
+command! AutoCloseToggle :call <SID>ToggleAutoCloseMappings()
 " vim: set ft=vim ff=unix et sw=4 ts=4 :
 " vim600: set foldmethod=marker foldmarker={{{,}}} foldlevel=1 :

@@ -457,9 +457,9 @@ set noswapfile
 
 let mapleader = ","
 
-silent! nmap <F6> :Rmodel
-silent! nmap <F7> :Rview
-silent! nmap <F8> :Rcontroller
+silent! nmap <F6> :Rmodel 
+silent! nmap <F7> :Rview 
+silent! nmap <F8> :Rcontroller 
 
 "toggle autoclose when switching in and out of ConqueTerm
 function ToggleAutoClose(term)
@@ -467,3 +467,16 @@ function ToggleAutoClose(term)
 endfunction
 call conque_term#register_function('buffer_enter', 'ToggleAutoClose')
 call conque_term#register_function('buffer_leave', 'ToggleAutoClose')
+
+"make fg smart
+function JumpToFileInLine()
+  let l:path_and_line = matchstr(getline(line('.')), '\.\/\(\w\+\/\)\+\w\+\(.\w\+\)\?:\d\+')
+  let l:path = strpart(l:path_and_line, 0, strridx(l:path_and_line, ':'))
+  let l:line = strpart(l:path_and_line, strridx(l:path_and_line, ':') + 1)
+  exe "e +" . l:line . ' ' . l:path
+endfunction
+
+function MapGf(term)
+  nmap <buffer> gf              :call JumpToFileInLine()<CR>
+endfunction
+call conque_term#register_function('after_startup', 'MapGf')

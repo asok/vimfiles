@@ -151,3 +151,6 @@
 [submodule "bundle/vim-conque"]
 	path = bundle/vim-conque
 	url = https://github.com/rygwdn/vim-conque.git
+[submodule "bundle/zoomwin"]
+	path = bundle/zoomwin
+	url = git://github.com/vim-scripts/ZoomWin.git

@@ -457,9 +457,12 @@ set noswapfile
 
 let mapleader = ","
 
-silent! nmap <F6> :Rmodel 
-silent! nmap <F7> :Rview 
-silent! nmap <F8> :Rcontroller 
+"general conque settings
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_InsertOnEnter = 0
+let g:ConqueTerm_FastMode = 1
+"disable F8
+let g:ConqueTerm_ToggleKey = ''
 
 "toggle autoclose when switching in and out of ConqueTerm
 function ToggleAutoClose(term)
@@ -480,3 +483,15 @@ function MapGf(term)
   nmap <buffer> gf              :call JumpToFileInLine()<CR>
 endfunction
 call conque_term#register_function('after_startup', 'MapGf')
+
+silent! nmap <F6> :Rmodel 
+silent! nmap <F7> :Rview 
+silent! nmap <F8> :Rcontroller 
+
+"disable scrolls
+:setglobal guioptions-=L
+:setglobal guioptions-=l
+:setglobal guioptions-=R
+:setglobal guioptions-=r
+:setglobal guioptions-=b
+:setglobal guioptions-=h

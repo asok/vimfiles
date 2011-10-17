@@ -154,3 +154,6 @@
 [submodule "bundle/zoomwin"]
 	path = bundle/zoomwin
 	url = git://github.com/vim-scripts/ZoomWin.git
+[submodule "bundle/greplace"]
+	path = bundle/greplace
+	url = git://github.com/vim-scripts/greplace.vim.git

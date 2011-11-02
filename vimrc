@@ -316,8 +316,8 @@ map <A-q> :cclose<CR>
 map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
-"key mapping for Gundo
-nnoremap <F4> :GundoToggle<CR>
+"key mapping for CommandTBuffer
+nnoremap <F4> :CommandTBuffer<CR>
 
 "snipmate setup
 try

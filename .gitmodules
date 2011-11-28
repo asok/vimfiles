@@ -160,3 +160,9 @@
 [submodule "bundle/vim-togglelist"]
 	path = bundle/vim-togglelist
 	url = git://github.com/milkypostman/vim-togglelist.git
+[submodule "plugin/file-line"]
+	path = plugin/file-line
+	url = git@github.com:asok/file-line.git
+[submodule "plugin/vim-scratch"]
+	path = plugin/vim-scratch
+	url = git://github.com/vim-scripts/scratch.vim.git

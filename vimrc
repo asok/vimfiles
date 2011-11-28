@@ -240,7 +240,6 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=ansi
-        colorscheme railscasts
         set guifont=Monospace\ 10
     endif
 
@@ -257,6 +256,7 @@ if has("gui_running")
         nmap <D-k> <C-w>k
         nmap <D-l> <C-w>l
         nmap <D-b> :ConqueTerm bash<CR>
+        let g:ConqueTerm_SendVisKey = '<A-F9>'
 
         let Grep_Find_Use_Xargs = 0
     endif
@@ -471,19 +471,6 @@ endfunction
 call conque_term#register_function('buffer_enter', 'ToggleAutoClose')
 call conque_term#register_function('buffer_leave', 'ToggleAutoClose')
 
-"make fg smart
-function JumpToFileInLine()
-  let l:path_and_line = matchstr(getline(line('.')), '\.\/\(\w\+\/\)\+\w\+\(.\w\+\)\?:\d\+')
-  let l:path = strpart(l:path_and_line, 0, strridx(l:path_and_line, ':'))
-  let l:line = strpart(l:path_and_line, strridx(l:path_and_line, ':') + 1)
-  exe "e +" . l:line . ' ' . l:path
-endfunction
-
-function MapGf(term)
-  nmap <buffer> gf              :call JumpToFileInLine()<CR>
-endfunction
-call conque_term#register_function('after_startup', 'MapGf')
-
 silent! nmap <F6> :Rmodel 
 silent! nmap <F7> :Rview 
 silent! nmap <F8> :Rcontroller 
@@ -495,3 +482,6 @@ silent! nmap <F8> :Rcontroller
 :setglobal guioptions-=r
 :setglobal guioptions-=b
 :setglobal guioptions-=h
+
+"open scratch
+autocmd! VimEnter * Scratch

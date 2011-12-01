@@ -471,9 +471,9 @@ endfunction
 call conque_term#register_function('buffer_enter', 'ToggleAutoClose')
 call conque_term#register_function('buffer_leave', 'ToggleAutoClose')
 
-silent! nmap <F6> :Rmodel
-silent! nmap <F7> :Rview
-silent! nmap <F8> :Rcontroller
+silent! nmap <F6> :Rmodel 
+silent! nmap <F7> :Rview 
+silent! nmap <F8> :Rcontroller 
 
 "disable scrolls
 :setglobal guioptions-=L
